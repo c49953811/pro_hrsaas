@@ -27,10 +27,19 @@ module.exports = {
   publicPath: '/',
   outputDir: 'dist',
   assetsDir: 'static',
-  lintOnSave: process.env.NODE_ENV === 'development',
+  lintOnSave: false, // process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
-    port: port,
+    // proxy跨域
+    proxy: {
+      '/abc': {
+        target: 'http://119.91.150.211:3000/api',
+        pathRewrite: {
+          '^/abc': ''
+        }
+      }
+    },
+    port: 8080,
     open: true,
     overlay: {
       warnings: false,

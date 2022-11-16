@@ -1,9 +1,10 @@
 <template>
   <div>
     首页
-    <!-- <button @click="btnClick">调用api</button> -->
+    <button @click="btnClick">调用api</button>
     <h3>动画</h3>
     <button @click="show = !show">按钮切换</button>
+
     <!-- 动画实现
     1：将动画元素用transition包住
     2:在transition加入name属性
@@ -19,7 +20,7 @@
   </div>
 </template>
 <script>
-// import { sysLogin } from '@/api/test'
+import { sysLogin } from '@/api/test'
 export default {
   data() {
     return {
@@ -27,10 +28,10 @@ export default {
     }
   },
   methods: {
-    // async btnClick () {
-    //   const res = await sysLogin()
-    //   console.log(res)
-    // }
+    async btnClick() {
+      const res = await sysLogin()
+      console.log(res)
+    }
   }
 }
 </script>
